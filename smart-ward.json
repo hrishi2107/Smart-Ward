@@ -1,0 +1,625 @@
+[
+    {
+        "id": "23fefb403d0f7a06",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d114ec5ad4f2d3f9",
+        "type": "ui_tab",
+        "d": true,
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": true,
+        "hidden": false
+    },
+    {
+        "id": "b3ac8dd216e27568",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "8c7dd53c56db665e",
+        "type": "ui_group",
+        "name": "Image detection",
+        "tab": "d114ec5ad4f2d3f9",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "1870087dfcbf0883",
+        "type": "ui_group",
+        "d": true,
+        "name": "Default",
+        "tab": "d114ec5ad4f2d3f9",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5f414c0f516e07f0",
+        "type": "fileinject",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "bcc91a40f820af4b",
+                "8adb25213a04962a"
+            ]
+        ]
+    },
+    {
+        "id": "91e1929e77d0bba1",
+        "type": "ui_form",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "label": "",
+        "group": "8c7dd53c56db665e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "language",
+                "value": "language",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "language": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": "",
+        "x": 90,
+        "y": 60,
+        "wires": [
+            [
+                "9add0d2670a65f9a"
+            ]
+        ]
+    },
+    {
+        "id": "9add0d2670a65f9a",
+        "type": "json",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "property": "classes",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 60,
+        "wires": [
+            [
+                "3729e862dfdd52b8"
+            ]
+        ]
+    },
+    {
+        "id": "3729e862dfdd52b8",
+        "type": "change",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.language",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 60,
+        "wires": [
+            [
+                "835b7fe971b8297a"
+            ]
+        ]
+    },
+    {
+        "id": "835b7fe971b8297a",
+        "type": "function",
+        "z": "23fefb403d0f7a06",
+        "name": "language",
+        "func": "var GlobalTemp = {};\nif (msg.payload == \"english\") {\n    GlobalTemp.a = 1;\n    GlobalTemp.b = 0;\n    GlobalTemp.c = 0;\n}\nelse if (msg.payload == \"spanish\") {\n    GlobalTemp.a = 0;\n    GlobalTemp.b = 1;\n    GlobalTemp.c = 0;\n}\nelse if (msg.payload == \"hindi\") {\n    GlobalTemp.a = 0;\n    GlobalTemp.b = 0;\n    GlobalTemp.c = 1;\n}\nglobal.set(\"Temp\", GlobalTemp);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 60,
+        "wires": [
+            [
+                "ed9a97c29c172e2e"
+            ]
+        ]
+    },
+    {
+        "id": "ed9a97c29c172e2e",
+        "type": "debug",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "bcc91a40f820af4b",
+        "type": "tensorflowCoco",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "modelUrl": "http://127.0.0.1:1880/coco/model.json",
+        "scoreThreshold": 0.5,
+        "passthru": "bbox",
+        "lineColour": "magenta",
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "b07dd8a91932e988",
+                "2cdae93e8d6702c4"
+            ]
+        ]
+    },
+    {
+        "id": "b07dd8a91932e988",
+        "type": "debug",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "classes",
+        "targetType": "msg",
+        "statusVal": "classes",
+        "statusType": "auto",
+        "x": 650,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2cdae93e8d6702c4",
+        "type": "json",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "property": "classes",
+        "action": "",
+        "pretty": true,
+        "x": 810,
+        "y": 180,
+        "wires": [
+            [
+                "5f51200aab4617b1"
+            ]
+        ]
+    },
+    {
+        "id": "5f51200aab4617b1",
+        "type": "change",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload[0]",
+                "pt": "msg",
+                "to": "payload[0].class",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload[1]",
+                "pt": "msg",
+                "to": "payload[1].class",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload[2]",
+                "pt": "msg",
+                "to": "payload[2].class",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload[3]",
+                "pt": "msg",
+                "to": "payload[3].class",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload[4]",
+                "pt": "msg",
+                "to": "payload[4].class",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 280,
+        "wires": [
+            [
+                "5cec22335ffb0f80"
+            ]
+        ]
+    },
+    {
+        "id": "5cec22335ffb0f80",
+        "type": "json",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 950,
+        "y": 360,
+        "wires": [
+            [
+                "dcda96a471170251"
+            ]
+        ]
+    },
+    {
+        "id": "dcda96a471170251",
+        "type": "function",
+        "z": "23fefb403d0f7a06",
+        "name": "switch for language",
+        "func": "var work_GlobalTemp = global.get(\"Temp\");\nif (work_GlobalTemp.a == 1) {\n    return [msg, null, null];\n}\nelse if (work_GlobalTemp.b == 1) {\n    return [null, msg, null];\n}\nelse if (work_GlobalTemp.c == 1) {\n    return [null, null, msg];\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 660,
+        "wires": [
+            [
+                "a11c53c16988c570",
+                "5531350cccdad1bb",
+                "0c32f9c7ec59c76e"
+            ]
+        ]
+    },
+    {
+        "id": "a11c53c16988c570",
+        "type": "function",
+        "z": "23fefb403d0f7a06",
+        "name": "pass",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 620,
+        "wires": [
+            [
+                "19e03880bcef6d19",
+                "d8c48ebcad58744e"
+            ]
+        ]
+    },
+    {
+        "id": "5531350cccdad1bb",
+        "type": "watson-translator",
+        "z": "23fefb403d0f7a06",
+        "name": "English to Spanish translator",
+        "action": "translate",
+        "basemodel": "ar-en",
+        "domain": "general",
+        "srclang": "en",
+        "destlang": "es",
+        "apikey": "HkKnR4boyscMYJJttxeglExgG3eXVJHD1s-ivKyLcpB6",
+        "custom": "",
+        "domainhidden": "general",
+        "srclanghidden": "en",
+        "destlanghidden": "es",
+        "basemodelhidden": "ar-en",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "service-endpoint": "https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/74d06bf4-5da1-498a-80ab-99333a38e637",
+        "x": 420,
+        "y": 680,
+        "wires": [
+            [
+                "650474dbdb509c3f",
+                "d8c48ebcad58744e"
+            ]
+        ]
+    },
+    {
+        "id": "0c32f9c7ec59c76e",
+        "type": "watson-translator",
+        "z": "23fefb403d0f7a06",
+        "name": "English to Hindi Translator",
+        "action": "translate",
+        "basemodel": "ar-en",
+        "domain": "general",
+        "srclang": "en",
+        "destlang": "hi",
+        "apikey": "HkKnR4boyscMYJJttxeglExgG3eXVJHD1s-ivKyLcpB6",
+        "custom": "",
+        "domainhidden": "general",
+        "srclanghidden": "en",
+        "destlanghidden": "hi",
+        "basemodelhidden": "ar-en",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "service-endpoint": "https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/74d06bf4-5da1-498a-80ab-99333a38e637",
+        "x": 430,
+        "y": 740,
+        "wires": [
+            [
+                "37432b6e00b522ba",
+                "d8c48ebcad58744e"
+            ]
+        ]
+    },
+    {
+        "id": "19e03880bcef6d19",
+        "type": "ui_audio",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "group": "8c7dd53c56db665e",
+        "voice": "Google US English",
+        "always": true,
+        "x": 720,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "650474dbdb509c3f",
+        "type": "ui_audio",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "group": "8c7dd53c56db665e",
+        "voice": "Google español",
+        "always": true,
+        "x": 700,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "37432b6e00b522ba",
+        "type": "ui_audio",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "group": "8c7dd53c56db665e",
+        "voice": "Google हिन्दी",
+        "always": true,
+        "x": 720,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "d8c48ebcad58744e",
+        "type": "ui_text",
+        "z": "23fefb403d0f7a06",
+        "group": "8c7dd53c56db665e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Object Detected:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 950,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "8adb25213a04962a",
+        "type": "image",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "thumbnail": true,
+        "active": true,
+        "pass": false,
+        "outputs": 0,
+        "x": 560,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b580eb0d28e31692",
+        "type": "image",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "thumbnail": false,
+        "active": true,
+        "pass": true,
+        "outputs": 1,
+        "x": 260,
+        "y": 440,
+        "wires": [
+            [
+                "bcc91a40f820af4b"
+            ]
+        ]
+    },
+    {
+        "id": "9c5a4ae65f445a59",
+        "type": "inject",
+        "z": "23fefb403d0f7a06",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 70,
+        "y": 280,
+        "wires": [
+            [
+                "0813a45e0b972fca"
+            ]
+        ]
+    },
+    {
+        "id": "0813a45e0b972fca",
+        "type": "usbcamera",
+        "z": "23fefb403d0f7a06",
+        "filemode": "1",
+        "filename": "image01.jpg",
+        "filedefpath": "1",
+        "filepath": "",
+        "fileformat": "png",
+        "resolution": "1",
+        "name": "",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "b580eb0d28e31692"
+            ]
+        ]
+    }
+]
